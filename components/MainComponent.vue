@@ -1,15 +1,12 @@
 <template>
     <div class="container">
-        <div class="home">
-            <h1>
-                HELLO
-            </h1>
-            <h4>
-                How are u doing?
-            </h4>
-        </div>
-        <div class="rect">
+        <div class="row">
+            <div class="col">
+                <h1>Nuxt with Gsap</h1>
+                <div class="rect">
 
+                </div>
+            </div>
         </div>
     </div>
 </template>
