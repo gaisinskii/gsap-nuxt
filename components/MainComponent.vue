@@ -1,14 +1,18 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>Nuxt with Gsap</h1>
-                <div class="rect">
-
-                </div>
+    <section class="section">
+        <nav>
+            <div class="nav__logo"></div>
+            <div class="nav">
+                <ul class="nav-list">
+                    <li class="nav-list__item"><a href="#">Home</a></li>
+                    <li class="nav-list__item"><a href="#">About</a></li>
+                    <li class="nav-list__item"><a href="#">Team</a></li>
+                    <li class="nav-list__item"><a href="#">Blog</a></li>
+                    <li class="nav-list__item"><a href="#">Contact Us</a></li>
+                </ul>
             </div>
-        </div>
-    </div>
+        </nav>
+    </section>
 </template>
 
 <script>
@@ -29,6 +33,18 @@ export default {
 </script>
 
 <style lang="scss">
+.section {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+}
 .rect {
     background-color:blue;
     width: 10vw;
