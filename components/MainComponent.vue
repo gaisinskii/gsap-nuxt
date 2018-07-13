@@ -25,8 +25,8 @@
             <div class="section__content-cube">
                 <div class="cube cube1">Component #1</div>
                 <div class="cube cube2">Component #2</div>
-                <div class="cube cube3">Component #3</div>
-                <div class="cube cube4">Component #4</div>
+                <div class="cube cube3">Component #4</div>
+                <div class="cube cube4">Component #3</div>
             </div>
         </div>
     </section>
