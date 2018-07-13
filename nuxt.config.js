@@ -27,6 +27,8 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    { src: 'normalize.css/normalize.css' },
+    { src: '~/assets/scss/global.scss' },
   ],
 
   /*
