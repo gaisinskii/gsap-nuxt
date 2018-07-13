@@ -16,9 +16,18 @@
                 </ul>
             </div>
         </nav>
-        <div class="circles">
-            <div class="circle__one"></div>
-            <div class="circle__two"></div>
+        <div class="section__content">
+            <div class="nav__logo_fixed">
+                <a href="">
+                    <img src="~/assets/images/logo_text.black.png" alt="">
+                </a>
+            </div>
+            <div class="section__content-cube">
+                <div class="cube cube1">Component #1</div>
+                <div class="cube cube2">Component #2</div>
+                <div class="cube cube3">Component #3</div>
+                <div class="cube cube4">Component #4</div>
+            </div>
         </div>
     </section>
 </template>
@@ -31,26 +40,21 @@ export default {
   methods: {
     animate() {
       const timeLine = new TimelineMax();
-      timeLine.from('.nav__logo', 2, {
+      timeLine.from('.nav__logo_fixed', 2, { alpha: 0, ease: Sine.easeIn });
+      timeLine.to('.nav__logo_fixed', 2, { alpha: 1, ease: Sine.easeInm });
+      timeLine.to('.nav__logo_fixed', 1, { alpha: 0, ease: Sine.easeIn, delay: 1 });
+      timeLine.from('.section__content-cube', 1, { alpha: 0, ease: Sine.easeIn });
+      timeLine.to('.section__content-cube', 1, { alpha: 1, ease: Sine.easeIn });
+      timeLine.from('.nav-list', 0.5, {
         alpha: 0,
         ease: Sine.easeIn,
       });
-      timeLine.to('.nav__logo', 2, {
+      timeLine.to('.nav-list', 0.5, {
         alpha: 1,
         ease: Sine.easeIn,
       });
+      timeLine.staggerFromTo('.nav-list__item', 0.5, { x: 50, alpha: 0 }, { x: 0, alpha: 1 }, 0.2);
       timeLine.to('.nav__logo', 2, {
-        x: -460,
-        y: -460,
-        delay: 1,
-        alpha: 1,
-        ease: Sine.easeIn,
-      });
-      timeLine.from('.nav-list', 1, {
-        alpha: 0,
-        ease: Sine.easeIn,
-      });
-      timeLine.to('.nav-list', 1, {
         alpha: 1,
         ease: Sine.easeIn,
       });
@@ -73,6 +77,28 @@ export default {
     align-items: center;
     height: 100%;
     width: 100%;
+    &-cube {
+        display: flex;
+        position:relative;
+        height: 600px;
+        width: 600px;
+        background: azure;
+        flex-wrap: wrap;
+        border-radius: 50%;
+        box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        opacity: 0;
+        overflow: hidden;
+        .cube {
+            display: flex;
+            width: 50%;
+            height: 50%;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                background: pink;
+            }
+        }
+    }
   }
 }
 
@@ -95,38 +121,15 @@ export default {
     }
   }
   &__logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     opacity: 0;
-  }
-}
-
-.circles {
-  .circle__one {
-    position: absolute;
-    top: 50%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    height: 200px;
-    border-bottom-right-radius: 100px;
-    border-top-right-radius: 100px;
-    border: 5px solid gray;
-    border-left: 0;
-  }
-  .circle__two {
-    position: absolute;
-    top: 50%;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    width: 90px;
-    height: 180px;
-    border-bottom-left-radius: 90px;
-    border-top-left-radius: 90px;
-    border: 5px solid red;
-    border-right: 0;
+    &_fixed {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 3;
+        opacity: 0;
+    }
   }
 }
 </style>
