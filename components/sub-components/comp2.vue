@@ -1,11 +1,10 @@
 <template>
     <div>
-        <navigation> </navigation>
         <div class="circle__content">
             <div class="comp comp2">
                 comp2
             </div>
-            <div>
+            <div class="lorem">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Libero molestiae saepe doloribus reprehenderit eos,
                 voluptatum vitae similique repellendus corrupti explicabo reiciendis
@@ -64,11 +63,8 @@
 </template>
 
 <script>
-import Navigation from '../Navigation.vue';
-
 export default {
   components: {
-    Navigation,
   },
 };
 </script>
@@ -84,6 +80,11 @@ export default {
         height: 300px;
         width: 300px;
         background: cyan;
+    }
+    .lorem {
+        max-width: 900px;
+        text-align: justify;
+        margin-top: 40px;
     }
 }
 </style>

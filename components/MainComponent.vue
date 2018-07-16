@@ -1,6 +1,5 @@
 <template>
     <section class="section">
-        <navigation></navigation>
         <div class="section__content">
             <div class="nav__logo_fixed">
                 <a href="">
@@ -25,11 +24,9 @@
 
 <script>
 import { TimelineMax } from 'gsap';
-import Navigation from './Navigation.vue';
 
 export default {
   components: {
-    Navigation,
   },
   methods: {
     animate() {
