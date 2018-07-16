@@ -1,21 +1,6 @@
 <template>
     <section class="section">
-        <nav class="nav">
-            <div class="nav__logo">
-                <a href="">
-                    <img src="~/assets/images/logo_text.black.png" alt="">
-                </a>
-            </div>
-            <div>
-                <ul class="nav-list">
-                    <li class="nav-list__item"><a href="#">Home</a></li>
-                    <li class="nav-list__item"><a href="#">About</a></li>
-                    <li class="nav-list__item"><a href="#">Team</a></li>
-                    <li class="nav-list__item"><a href="#">Blog</a></li>
-                    <li class="nav-list__item"><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-        </nav>
+        <navigation></navigation>
         <div class="section__content">
             <div class="nav__logo_fixed">
                 <a href="">
@@ -23,8 +8,14 @@
                 </a>
             </div>
             <div class="section__content-cube">
-                <div class="cube cube1">Component #1</div>
-                <div class="cube cube2">Component #2</div>
+                <div class="cube cube1">
+                    <nuxt-link to="/circle1">
+                    </nuxt-link>
+                </div>
+                <div class="cube cube2">
+                    <nuxt-link to="/circle2">
+                    </nuxt-link>
+                </div>
                 <div class="cube cube3">Component #4</div>
                 <div class="cube cube4">Component #3</div>
             </div>
@@ -34,9 +25,12 @@
 
 <script>
 import { TimelineMax } from 'gsap';
+import Navigation from './Navigation.vue';
 
 export default {
-  name: 'Home',
+  components: {
+    Navigation,
+  },
   methods: {
     animate() {
       const timeLine = new TimelineMax();
@@ -86,49 +80,39 @@ export default {
         flex-wrap: wrap;
         border-radius: 50%;
         box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-        opacity: 0;
         overflow: hidden;
         .cube {
             display: flex;
+            position: relative;
             width: 50%;
             height: 50%;
             justify-content: center;
             align-items: center;
+            a {
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
             &:hover {
                 background: pink;
             }
         }
-    }
-  }
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 20px;
-  .nav-list {
-    display: flex;
-    height: 100%;
-    list-style: none;
-    margin: 0;
-    opacity: 0;
-    &__item {
-      margin: 0 15px;
-      a {
-        color: #666;
-      }
-    }
-  }
-  &__logo {
-    opacity: 0;
-    &_fixed {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        z-index: 3;
-        opacity: 0;
+        .cube1 {
+            position: relative;
+            &::after {
+                position: absolute;
+                content: 'Component #1';
+                color: #666;
+            }
+        }
+        .cube2 {
+            position: relative;
+            &::after {
+                position: absolute;
+                content: 'Component #2';
+                color: #666;
+            }
+        }
     }
   }
 }
