@@ -9,6 +9,7 @@ export default {
   components: {
     comp1,
   },
+  transitions: 'bounce',
 };
 </script>
 
