@@ -29,7 +29,7 @@ export default {
     },
     leave(el, done) {
       TweenMax.to(el, 1, {
-        rotationY: 0,
+        rotationX: 0,
         transformOrigin: '50% 50%',
         ease: Back.easeIn,
       });
