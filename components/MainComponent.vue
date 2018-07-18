@@ -1,11 +1,7 @@
 <template>
     <section class="section">
         <div class="section__content">
-            <div class="nav__logo_fixed">
-                <a href="">
-                    <img src="~/assets/images/logo_text.black.png" alt="">
-                </a>
-            </div>
+
             <div class="section__content-cube">
                 <div class="cube cube1">
                     <nuxt-link to="/circle1">
@@ -23,36 +19,8 @@
 </template>
 
 <script>
-import { TimelineMax } from 'gsap';
-
 export default {
   components: {
-  },
-  methods: {
-    animate() {
-      const timeLine = new TimelineMax();
-      timeLine.from('.nav__logo_fixed', 2, { alpha: 0, ease: Sine.easeIn });
-      timeLine.to('.nav__logo_fixed', 2, { alpha: 1, ease: Sine.easeInm });
-      timeLine.to('.nav__logo_fixed', 1, { alpha: 0, ease: Sine.easeIn, delay: 1 });
-      timeLine.from('.section__content-cube', 1, { alpha: 0, ease: Sine.easeIn });
-      timeLine.to('.section__content-cube', 1, { alpha: 1, ease: Sine.easeIn });
-      timeLine.from('.nav-list', 0.5, {
-        alpha: 0,
-        ease: Sine.easeIn,
-      });
-      timeLine.to('.nav-list', 0.5, {
-        alpha: 1,
-        ease: Sine.easeIn,
-      });
-      timeLine.staggerFromTo('.nav-list__item', 0.5, { x: 50, alpha: 0 }, { x: 0, alpha: 1 }, 0.2);
-      timeLine.to('.nav__logo', 2, {
-        alpha: 1,
-        ease: Sine.easeIn,
-      });
-    },
-  },
-  beforeMount() {
-    this.animate();
   },
 };
 </script>
@@ -62,6 +30,7 @@ export default {
   display: flex;
   height: 100vh;
   flex-direction: column;
+  visibility: hidden;
   &__content {
     display: flex;
     justify-content: center;

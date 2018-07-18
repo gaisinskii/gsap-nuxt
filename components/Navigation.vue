@@ -31,12 +31,12 @@ export default {};
   align-items: center;
   justify-content: space-around;
   margin-top: 20px;
+  visibility: hidden;
   .nav-list {
     display: flex;
     height: 100%;
     list-style: none;
     margin: 0;
-    opacity: 0;
     &__item {
       margin: 0 15px;
       a {
@@ -45,15 +45,6 @@ export default {};
     }
   }
   &__logo {
-    opacity: 0;
-    &_fixed {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 3;
-      opacity: 0;
-    }
   }
 }
 </style>
